@@ -1,0 +1,18 @@
+﻿apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: docu-chat
+resources: []
+  # - postgres/statefulset.yaml
+  # - postgres/service.yaml
+  # - postgres/sealed-secret.yaml
+  # - backend/deployment.yaml
+  # - backend/service.yaml
+  # - backend/configmap.yaml
+  # - frontend/deployment.yaml
+  # - frontend/service.yaml
+  # - ingress.yaml
+images:
+  - name: meetbariya/docu-chat-backend
+    newTag: "1.0.0"
+  - name: meetbariya/docu-chat-frontend
+    newTag: "1.0.0"
