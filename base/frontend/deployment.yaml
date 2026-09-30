@@ -34,27 +34,27 @@ spec:
               value: "0.0.0.0"
             - name: BACKEND_URL
               value: http://backend:8000
-          startupProbe:
-            httpGet:
-              path: /
-              port: http
-            periodSeconds: 5
-            timeoutSeconds: 5
-            failureThreshold: 24
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
-            periodSeconds: 10
-            timeoutSeconds: 5
-            failureThreshold: 3
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-            periodSeconds: 20
-            timeoutSeconds: 5
-            failureThreshold: 3
+          # startupProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          #   periodSeconds: 5
+          #   timeoutSeconds: 5
+          #   failureThreshold: 24
+          # readinessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          #   periodSeconds: 10
+          #   timeoutSeconds: 5
+          #   failureThreshold: 3
+          # livenessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          #   periodSeconds: 20
+          #   timeoutSeconds: 5
+          #   failureThreshold: 3
           resources:
             requests:
               cpu: 100m
