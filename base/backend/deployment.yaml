@@ -6,7 +6,7 @@ metadata:
     app.kubernetes.io/name: docu-chat
     app.kubernetes.io/component: backend
 spec:
-  replicas: 2
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -65,3 +65,9 @@ spec:
             capabilities:
               drop:
                 - ALL
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: /tmp
+          emptyDir: {}
