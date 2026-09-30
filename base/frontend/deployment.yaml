@@ -30,6 +30,8 @@ spec:
               containerPort: 3000
               protocol: TCP
           env:
+            - name: HOSTNAME
+              value: "0.0.0.0"
             - name: BACKEND_URL
               value: http://backend:8000
           startupProbe:
@@ -37,28 +39,29 @@ spec:
               path: /
               port: http
             periodSeconds: 5
-            failureThreshold: 12
+            timeoutSeconds: 5
+            failureThreshold: 24
           readinessProbe:
             httpGet:
               path: /
               port: http
             periodSeconds: 10
-            timeoutSeconds: 2
+            timeoutSeconds: 5
             failureThreshold: 3
           livenessProbe:
             httpGet:
               path: /
               port: http
             periodSeconds: 20
-            timeoutSeconds: 2
+            timeoutSeconds: 5
             failureThreshold: 3
           resources:
             requests:
-              cpu: 50m
-              memory: 128Mi
-            limits:
               cpu: 100m
               memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:

@@ -69,5 +69,5 @@ spec:
             - name: tmp
               mountPath: /tmp
       volumes:
-        - name: /tmp
+        - name: tmp
           emptyDir: {}
