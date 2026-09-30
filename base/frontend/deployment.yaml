@@ -8,7 +8,7 @@ metadata:
 spec:
   replicas: 1
   strategy:
-    type: rollingUpdate
+    type: RollingUpdate
     rollingUpdate:
       maxUnavailable: 0
       maxSurge: 1
@@ -61,7 +61,6 @@ spec:
               memory: 256Mi
           securityContext:
             allowPrivilegeEscalation: false
-            readOnlyRootFilesystem: true
             capabilities:
               drop:
                 - ALL
