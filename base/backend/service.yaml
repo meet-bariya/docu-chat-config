@@ -1,1 +1,16 @@
-﻿
+﻿apiVersion: v1
+kind: Service
+metadata:
+  name: backend-svc
+  labels:
+    app.kubernetes.io/name: docu-chat
+    app.kubernetes.io/component: backend
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: docu-chat
+    app.kubernetes.io/component: backend
+  ports:
+    - name: http
+      port: 3000
+      targetPort: http
